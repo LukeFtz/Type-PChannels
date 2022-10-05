@@ -70,11 +70,9 @@ TEMPLATES = [
 
 CHANNEL_LAYERS = {
     "default": {
-        "BACKEND": "channels_redis.pubsub.RedisPubSubChannelLayer",
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
             "hosts": [("localhost", 6379)],
-            "on_disconnect": "redis.disconnect",
-            "on_connect":"redis.connect",
         },
     },
 }
