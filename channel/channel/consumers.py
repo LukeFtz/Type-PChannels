@@ -53,6 +53,9 @@ class Consumers(WebsocketConsumer):
         elif data["func"]=="SEND_COMPLETE":
             data_to_send=json.dumps({"func":"HEAT_COMPLETE", "token": "$Xip%meT"})
             self.send(text_data=data_to_send)
+        elif data["func"]=="STRT_RECYCLE":
+            data_to_send=json.dumps({"func":"OVEN_RECYCLING", "token": "$Xip%meT"})
+            self.send(text_data=data_to_send)
         # else:
         #     self.send(text_data=json.dumps(data))
         
