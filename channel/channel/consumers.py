@@ -41,23 +41,26 @@ class Consumers(WebsocketConsumer):
                 "token":token
             })
             self.send(text_data=token_data)
-        elif (data["func"]=="DEF_OVEN"):
-            data_to_send=json.dumps({"func":"OVEN_SETTED", "token": "$Xip%meT"})
-            self.send(text_data=data_to_send)
-        elif data["func"]=="STRT_HEAT":
-            data_to_send=json.dumps({"func":"OVEN_HEATING", "token": "$Xip%meT"})
-            self.send(text_data=data_to_send)
-        elif data["func"]=="SEND_VAL":
-            data_to_send=json.dumps({"func":"OVEN_TEMP", "val":150, "token": "$Xip%meT"})
-            self.send(text_data=data_to_send)
-        elif data["func"]=="SEND_COMPLETE":
-            data_to_send=json.dumps({"func":"HEAT_COMPLETE", "token": "$Xip%meT"})
-            self.send(text_data=data_to_send)
-        elif data["func"]=="STRT_RECYCLE":
-            data_to_send=json.dumps({"func":"OVEN_RECYCLING", "token": "$Xip%meT"})
-            self.send(text_data=data_to_send)
-        # else:
-        #     self.send(text_data=json.dumps(data))
+        # elif (data["func"]=="DEF_OVEN"):
+        #     data_to_send=json.dumps({"func":"OVEN_SETTED", "token": "$Xip%meT"})
+        #     self.send(text_data=data_to_send)
+        # elif data["func"]=="STRT_HEAT":
+        #     data_to_send=json.dumps({"func":"OVEN_HEATING", "token": "$Xip%meT"})
+        #     self.send(text_data=data_to_send)
+        # elif data["func"]=="SEND_VAL":
+        #     data_to_send=json.dumps({"func":"OVEN_TEMP", "val":150, "token": "$Xip%meT"})
+        #     self.send(text_data=data_to_send)
+        # elif data["func"]=="SEND_COMPLETE":
+        #     data_to_send=json.dumps({"func":"HEAT_COMPLETE", "token": "$Xip%meT"})
+        #     self.send(text_data=data_to_send)
+        # elif data["func"]=="STRT_RECYCLE":
+        #     data_to_send=json.dumps({"func":"OVEN_RECYCLING", "token": "$Xip%meT"})
+        #     self.send(text_data=data_to_send)
+        # elif data["func"]=="CANCEL":
+        #     data_to_send=json.dumps({"func":"PROCESS_CANCELED", "token": "$Xip%meT"})
+        #     self.send(text_data=data_to_send)
+        else:
+            self.send(text_data=json.dumps(data))
         
 
     def disconnect(self, close_code):
